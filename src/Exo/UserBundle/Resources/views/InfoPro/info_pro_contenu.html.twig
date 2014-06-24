@@ -1,0 +1,12 @@
+{% extends "ExoUserBundle::layout.html.twig" %}
+
+{% block fos_user_content %}
+    <h2>Édition de profil</h2>
+
+    <div class="well">
+        <form method="post" {{ form_enctype(form) }}>
+            {{ form_widget(form) }}
+            <input type="submit" class="btn btn-primary" value="Modifier" />
+        </form>
+    </div>
+{% endblock %}

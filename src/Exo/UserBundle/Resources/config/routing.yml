@@ -1,0 +1,15 @@
+exo_profil:
+    pattern:  /profil
+    defaults: { _controller: ExoUserBundle:Profil:profil }
+
+voir_profil:
+    pattern: /profil/voir/{id}
+    defaults: { _controller: ExoUserBundle:Profil:voir }
+    requirements:
+        id: \d+
+
+modifier_profil:
+    pattern: /profil/modifier/{id}
+    defaults: { _controller: ExoUserBundle:Profil:modifier }
+    requirements:
+        id: \d+

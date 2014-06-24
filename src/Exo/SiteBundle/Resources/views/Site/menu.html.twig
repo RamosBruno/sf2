@@ -1,0 +1,54 @@
+{% block menu %}
+    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div id="menu" class="navbar-header">
+                <a class="navbar-brand" href="{{ path('exo_accueil') }}">Accueil du Site</a>
+            </div>
+            <div class="navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Accès Commerçant
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            {% if is_granted('ROLE_USER') %}
+                                <li>
+                                    <a href="{{ path('voir_profil', {'id': user.infoPro.id }) }}">Infos Professionnelles</a>
+                                </li>
+                                <li>
+                                    <a href="#">Avis</a>
+                                </li>
+                                <li>
+                                    <a href="#">Historique des avis</a>
+                                </li>
+                            {% else %}
+                                <li>
+                                    <a href="{{ path('fos_user_registration_register') }}">Créer un compte</a>
+                                </li>
+                                <li>
+                                    <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                                </li>
+                            {% endif %}
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            Accès Administrateur
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="{{ path('fos_user_registration_register') }}">Créer un compte</a>
+                            </li>
+                            <li>
+                                <a href="{{ path('fos_user_security_login') }}">Connexion</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
