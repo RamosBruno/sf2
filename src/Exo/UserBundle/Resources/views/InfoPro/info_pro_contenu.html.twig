@@ -3,9 +3,77 @@
 {% block fos_user_content %}
     <h2>Édition de profil</h2>
 
-    <div class="well">
-        <form method="post" {{ form_enctype(form) }}>
-            {{ form_widget(form) }}
+    <div class="container">
+        <form action="{{ path('modifier_profil',{'id': user.infoPro.id }) }}" method="post" {{ form_enctype(form) }}>
+            {{ form_errors(form) }}
+
+            <div class="form-group">
+                {{ form_label(form.siret)  }}
+                {{ form_widget(form.siret,{'attr': {'class':'form-control'} }) }}
+                {{ form_errors(form.siret) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.nomCom)  }}
+                {{ form_widget(form.nomCom,{'attr': {'class':'form-control'} }) }}
+                {{ form_errors(form.nomCom) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.adresse)  }}
+                {{ form_widget(form.adresse,{'attr': {'class':'form-control'} }) }}
+                {{ form_errors(form.adresse) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.codePostal)  }}
+                {{ form_widget(form.codePostal,{'attr': {'class':'form-control'} }) }}
+                {{ form_errors(form.codePostal) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.ville)  }}
+                {{ form_widget(form.ville,{'attr': {'class':'form-control'} }) }}
+                {{ form_errors(form.ville) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.pays)  }}
+                {{ form_widget(form.pays,{'attr': {'class':'form-control'} }) }}
+                {{ form_errors(form.pays) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.telephone)  }}
+                {{ form_widget(form.telephone,{'attr': {'class':'form-control'} }) }}
+                {{ form_errors(form.telephone) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.portable)  }}
+                {{ form_widget(form.portable,{'attr': {'class':'form-control'} }) }}
+                {{ form_errors(form.portable) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.mail)  }}
+                {{ form_widget(form.mail,{'attr': {'class':'form-control', 'type':'mail'} }) }}
+                {{ form_errors(form.mail) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.activite)  }}
+                {{ form_widget(form.activite,{'attr': {'class':'form-control'} }) }}
+                {{ form_errors(form.activite) }}
+            </div>
+
+            <div class="form-group">
+                {{ form_label(form.site)  }}
+                {{ form_widget(form.site,{'attr': {'class':'form-control'} }) }}
+                {{ form_errors(form.site) }}
+            </div>
+
+            {{ form_rest(form) }}
             <input type="submit" class="btn btn-primary" value="Modifier" />
         </form>
     </div>
